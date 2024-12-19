@@ -1,12 +1,18 @@
 import React from 'react';
-// import Hero from './components/Hero';
+import dbimage from '/dbimage.png'
 
 const Dashboard = () => {
     return (
-        <div className="container">
+        <div className="container mx-auto p-4">
             {/* <Hero /> */}
-            <h1>Dashboard</h1>
-            <p>Welcome to your dashboard! Here you can find an overview of your recent activities, workout summaries, and performance metrics.</p>
+            <div className=" text-white p-6 rounded-lg shadow-lg">
+                <h1 className="text-4xl font-bold mb-4">Dashboard</h1>
+                <p className="text-lg">
+                    Welcome to your dashboard! Here you can find an overview of your recent activities, workout summaries, and performance metrics.
+                </p>
+
+            </div>
+            <div><img src={dbimage} alt="Dashboard" /></div>
         </div>
     );
 };

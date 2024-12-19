@@ -97,7 +97,9 @@ export default function Generator(props) {
                 })}
             </div>
             <Button func={updateWorkout} text={"Formulate"}></Button>
+
         </SectionWrapper>
 
     )
 }
+
