@@ -16,11 +16,13 @@ import NavigationBar from './components/Navbar';
 
 
 function App() {
+  // State variables to manage workout, selected workout type (poison), muscles, and goal
   const [workout, setWorkout] = useState(null)
   const [poison, setPoison] = useState('individual')
   const [muscles, setMuscles] = useState([])
   const [goal, setGoal] = useState('strength_power')
 
+  // Function to update the workout based on selected muscles, poison, and goal
   function updateWorkout() {
     if (muscles.length < 1) {
       return
@@ -28,6 +30,7 @@ function App() {
     let newWorkout = generateWorkout({ poison, muscles, goal })
     setWorkout(newWorkout)
 
+    // Navigate to the workout section
     window.location.href = '#workout'
   }
 

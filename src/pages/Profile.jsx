@@ -3,15 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateEmail, updatePassword, deleteProfile } from '../features/user/userSlice';
 
+// Profile component to manage user profile settings
 const Profile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector((state) => state.user);
+
+    // Local state for form inputs
     const [email, setEmail] = useState(user.email);
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    // Effect to load email from local storage on mount
     useEffect(() => {
         const savedEmail = localStorage.getItem('email');
         if (savedEmail) {
@@ -19,28 +23,34 @@ const Profile = () => {
         }
     }, []);
 
+    // Handle email input change
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
 
+    // Handle email update form submission
     const handleEmailUpdate = (e) => {
         e.preventDefault();
         dispatch(updateEmail(email));
         localStorage.setItem('email', email);  // Save the updated email in local storage
     };
 
+    // Handle current password input change
     const handlePasswordChange = (e) => {
         setCurrentPassword(e.target.value);
     };
 
+    // Handle new password input change
     const handleNewPasswordChange = (e) => {
         setNewPassword(e.target.value);
     };
 
+    // Handle confirm password input change
     const handleConfirmPasswordChange = (e) => {
         setConfirmPassword(e.target.value);
     };
 
+    // Handle password update form submission
     const handlePasswordUpdate = (e) => {
         e.preventDefault();
         if (newPassword !== confirmPassword) {
@@ -53,6 +63,7 @@ const Profile = () => {
         setConfirmPassword('');
     };
 
+    // Handle profile deletion
     const handleDeleteProfile = () => {
         if (window.confirm("Are you sure you want to delete your profile? This action cannot be undone.")) {
             dispatch(deleteProfile());

@@ -1,6 +1,7 @@
 import { EXERCISES, SCHEMES, TEMPOS, WORKOUTS } from "./swoldier"
 const exercises = exercisesFlattener(EXERCISES)
 
+// Function to generate a workout based on selected muscles, workout type, and goal
 export function generateWorkout(args) {
     const { muscles, poison: workout, goal } = args
     let exer = Object.keys(exercises);
@@ -9,6 +10,7 @@ export function generateWorkout(args) {
     let numSets = 5;
     let listOfMuscles;
 
+    // Determine list of muscles to target
     if (workout === "individual") {
         listOfMuscles = muscles;
     } else {
@@ -135,6 +137,7 @@ export function generateWorkout(args) {
     );
 }
 
+// Function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1))
@@ -145,6 +148,7 @@ function shuffleArray(array) {
     return array
 }
 
+// Function to flatten the exercises object
 function exercisesFlattener(exercisesObj) {
     const flattenedObj = {}
 

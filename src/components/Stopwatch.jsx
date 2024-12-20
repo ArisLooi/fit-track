@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
 
+// Stopwatch component to handle timing functionality
 const Stopwatch = ({ isRunning, time, laps, onStart, onStop, onReset, onLap, formatTime }) => {
+    // useEffect hook to start and stop the interval
     useEffect(() => {
         let interval = null;
         if (isRunning) {
+            // Start the interval if the stopwatch is running
             interval = setInterval(onTick, 1000);
         } else if (!isRunning && interval !== null) {
+            // Clear the interval if the stopwatch is not running
             clearInterval(interval);
         }
         return () => clearInterval(interval);
 
+        // Function to handle the ticking
         function onTick() {
             onStart();
         }

@@ -4,14 +4,17 @@ import { useDispatch } from 'react-redux';
 import { recordExercise } from '../features/exerciseHistory/exerciseHistorySlice';
 
 export default function ExerciseCard(props) {
+    // Destructure props to extract exercise and index (i)
     const { exercise, i } = props;
     const dispatch = useDispatch();
 
+    // Define state variables for sets completed, timer, and laps
     const [setsCompleted, setSetsComplete] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
     const [time, setTime] = useState(0);
     const [laps, setLaps] = useState([]);
 
+    // Helper function to format time in hh:mm:ss
     const formatTime = (timeInSeconds) => {
         const hours = Math.floor(timeInSeconds / 3600);
         const minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -19,6 +22,7 @@ export default function ExerciseCard(props) {
         return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
 
+    // useEffect hook to handle timer start/stop
     useEffect(() => {
         let interval = null;
         if (isRunning) {
@@ -31,6 +35,7 @@ export default function ExerciseCard(props) {
         return () => clearInterval(interval);
     }, [isRunning]);
 
+    // Function to handle increment of sets completed and record exercise
     const handleSetIncrement = () => {
         const updatedSets = (setsCompleted + 1) % 6;
         setSetsComplete(updatedSets);
@@ -45,20 +50,24 @@ export default function ExerciseCard(props) {
         }
     };
 
+    // Function to start the stopwatch
     const handleStart = () => {
         setIsRunning(true);
     };
 
+    // Function to stop the stopwatch
     const handleStop = () => {
         setIsRunning(false);
     };
 
+    // Function to reset the stopwatch and laps
     const handleReset = () => {
         setIsRunning(false);
         setTime(0);
         setLaps([]);
     };
 
+    // Function to record a lap
     const handleLap = () => {
         setLaps([...laps, time]);
     };

@@ -3,8 +3,10 @@ import SectionWrapper from './SectionWrapper'
 import { SCHEMES, WORKOUTS } from '../utils/swoldier'
 import Button from './Button'
 
+// Header component to display section title and description
 function Header(props) {
     const { index, title, description } = props
+
     return (
         <div className='flex flex-col gap-4'>
             <div className='flex items-center justify-center gap-2'>
@@ -16,16 +18,17 @@ function Header(props) {
     )
 }
 
+// Main Generator component to manage workout generation logic
 export default function Generator(props) {
     const { muscles, setMuscles, poison, setPoison, goal, setGoal, updateWorkout } = props
     const [showModal, setShowModal] = useState(false)
 
-    // let showModal = false
-
+    // Function to toggle modal visibility
     function toggleModal() {
         setShowModal(!showModal)
     }
 
+    // Function to update selected muscles
     function updateMuscles(muscleGroup) {
         if (muscles.includes(muscleGroup)) {
             setMuscles(muscles.filter(val => val !== muscleGroup))

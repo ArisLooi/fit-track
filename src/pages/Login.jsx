@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginStart, loginSuccess, loginFailure } from '../features/auth/authSlice';
 
+// Login component for user authentication
 export default function Login() {
+    // Initialize form data state with email and password
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -12,6 +14,7 @@ export default function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(loginStart());

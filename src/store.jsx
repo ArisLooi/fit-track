@@ -8,11 +8,11 @@ import userReducer from '../src/features/user/userSlice';
 
 export const store = configureStore({
     reducer: {
-        auth: authReducer,
-        workouts: workoutsReducer,
-        timer: timerReducer,
-        exerciseHistory: exerciseHistoryReducer,
-        user: userReducer,
+        auth: authReducer, // Reducer for authentication state
+        workouts: workoutsReducer, // Reducer for workouts state
+        timer: timerReducer, // Reducer for timer state
+        exerciseHistory: exerciseHistoryReducer, // Reducer for exercise history state
+        user: userReducer, // Reducer for user data state
     }
 });
 

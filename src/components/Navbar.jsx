@@ -3,15 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../features/auth/authSlice';
 
+// NavigationBar component for the application's top navigation
 const NavigationBar = () => {
     const dispatch = useDispatch();
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const [isOpen, setIsOpen] = useState(false);
 
+    // Function to handle user logout
     const handleLogout = () => {
         dispatch(logout());
     };
 
+    // Function to toggle the mobile menu
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };

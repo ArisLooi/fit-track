@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginSuccess } from '../features/auth/authSlice';
 
+// Register component for user registration
 export default function Register() {
+    // Initialize form data state with email, password, and confirmPassword
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -13,6 +15,7 @@ export default function Register() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.password !== formData.confirmPassword) {

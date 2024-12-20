@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+// WorkoutHistory component to display the user's workout history
 const WorkoutHistory = () => {
+    // Get the exercise history from the Redux store
     const history = useSelector((state) => state.exerciseHistory.history);
     console.log('Workout history:', history);
     return (

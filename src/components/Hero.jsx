@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './Button'
 
+// Hero component to display the main banner with call-to-action
 export default function Hero() {
     return (
         <div className='min-h-screen flex flex-col gap-10 items-center justify-center text-center max-w-[800px] w-full mx-auto p-4'>

@@ -1,6 +1,8 @@
 import React from 'react'
 
+// SectionWrapper component to encapsulate sections with common styling
 export default function SectionWrapper(props) {
+    // Destructure props to extract children, header, title, and id
     const { children, header, title, id } = props
     return (
         <section id={id} className='min-h-screen flex flex-col gap-10'>
