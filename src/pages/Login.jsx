@@ -17,10 +17,10 @@ export default function Login() {
         dispatch(loginStart());
 
         try {
-            // Here you would typically make an API call to your backend
-            // For demo purposes, we'll simulate a successful login
+            // Replace with your actual API call
             const response = { user: { email: formData.email }, token: 'demo-token' };
-            localStorage.setItem('token', response.token);
+            localStorage.setItem('email', response.user.email); // Save email to local storage
+            localStorage.setItem('token', response.token);      // Save token to local storage
             dispatch(loginSuccess(response));
             navigate('/');
         } catch (error) {
@@ -29,7 +29,6 @@ export default function Login() {
     };
 
     return (
-
         <div className="flex min-h-screen items-center justify-center p-4">
             <div className="w-full max-w-md space-y-8 bg-slate-900 p-8 rounded-lg">
                 <div>
@@ -60,18 +59,14 @@ export default function Login() {
                             />
                         </div>
                     </div>
-
                     <div>
-                        <button
-                            type="submit"
-                            className="w-full rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
-                        >
+                        <button type="submit" className="w-full rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700">
                             Sign in
                         </button>
                     </div>
                 </form>
                 <p className="text-center">
-                    Don&apost have an account?{' '}
+                    Don't have an account?{' '}
                     <Link to="/register" className="text-blue-400 hover:text-blue-500">
                         Register
                     </Link>
