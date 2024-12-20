@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginStart, loginSuccess, loginFailure } from '../features/auth/authSlice';
+import coverImage from '/coverImage.jpg';
 
 // Login component for user authentication
 export default function Login() {
@@ -32,8 +33,11 @@ export default function Login() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center p-4">
-            <div className="w-full max-w-md space-y-8 bg-slate-900 p-8 rounded-lg">
+        <div className="min-h-screen bg-cover bg-center flex items-center justify-end lg:px-40 p-4" style={{
+            backgroundImage: `url(${coverImage})`
+        }}>
+
+            <div className="w-full lg:w-1/2 max-w-md space-y-8 bg-slate-900 bg-opacity-50 p-8 rounded-lg">
                 <div>
                     <h2 className="text-center text-3xl font-bold tracking-tight">
                         Sign in to your account
