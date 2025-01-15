@@ -1,4 +1,3 @@
-import React from 'react';
 import dbimage from '/dbimage.png';
 
 // Dashboard component to display an overview of recent activities and metrics

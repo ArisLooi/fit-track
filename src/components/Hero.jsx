@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Button from './Button'
 
 // Hero component to display the main banner with call-to-action
